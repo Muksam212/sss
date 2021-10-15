@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+.head-outer{
+    padding: 10px 80px;
+}
+.head-inner{
+    display: flex;
+    position: relative;
+}
+.branding{
+    float: left;
+}
+.icon{
+    height: 100px;
+    width: auto;
+}
+.social{
+    position: relative;
+    right: 0;
+    float: right;
+}
+.s-icon{
+    font-size: 20px;
+    padding: 40px 10px;
+    color: grey;
+}
+.s-icon:hover{
+    color: black;
+}
+.navbar{
+    background-color: #004b84;
+    width: 100%;
+    height: 50px;
+    padding: 10px 80px;
+}
+.nav-item{
+    float: left;
+    padding: 10px;
+    list-style: none;
+    color: white;
+    font-size: 20px;
+}
+.nav-item:hover{
+    color: black;
+}
+a{
+    text-decoration: none;
+}

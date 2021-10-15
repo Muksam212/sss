@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+# * VENDORS
+
+# ./vendors.sh
+
+
+# * VENV
+
+echo "* virtual environment"
+PATH_venv="venv"
+test -d "$PATH_venv" || python3 -m venv "$PATH_venv"
+source "$PATH_venv/bin/activate"
+pip install --requirement requirements.txt
+deactivate
+
+
+# Local Variables:
+# mode: shell-script-mode
+# End:

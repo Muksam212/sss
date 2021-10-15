@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Crud Operation</title>
+</head>
+<body>
+    <h1 class="text-center"> Flask Crud Operation</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col md-12">
+                <h2> Manage <b> Information <button type="button" class="btn btn-success float-right" data-toggle='modal' data-target="#mymodal">Add New Information</button></b></h2>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert=success alert-dimissable" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                     <span aria-hidden="true"></span>
+                  </button>
+                  {{ message }}
+                  </div>
+                     
+                  {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <table class="table table-hover table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th> Name </th>
+                        <th> Email</th>
+								<th> info </th>
+                        <th> Action </th>
+                    </tr>
+                    {% for row in employees %}
+                    <tr>
+
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.email }}</td>
+								<td>{{ row.info }} </td>
+                        <td>
+                            <a href="/update/{{ row.id }}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{ row.id }}"> Edit </a>
+                            <a href="/delete/{{ row.id }}" class="btn btn-danger btn-xs" onclick="return confirm('Are your sure To Delete?')"> Delete </a>
+                        </td>
+                    </tr>
+
+						  <div id="modaledit{{ row.id }}" class="modal fade" role="dialog">
+							<div class="modal-dialog">
+						 
+						 
+								<div class="modal-content">
+						 
+						 
+									<div class="modal-header">
+						 
+						 
+										<h4 class="modal-title">Update Information</h4>
+						 
+						 
+									</div>
+						 
+						 
+									<div class="modal-body">
+						 
+						 
+										<form action="{{ url_for ('update')}}" method="POST">
+						 
+						 
+											<div class="form-group">
+						 
+						 
+												<label>Name:</label>
+												 <input type="hidden"  name="id" value="{{ row.id }}">
+						 
+												<input type="text" class="form-control" name="name" value="{{ row.name }}">
+						 
+						 
+											</div>
+						 
+						 
+						 
+											<div class="form-group">
+						 
+						 
+												<label>Email:</label>
+						 
+												<input type="text" class="form-control" name="email" value="{{ row.email }}">
+						 
+						 
+											</div>
+						 
+						 
+											<div class="form-group">
+						 
+						 
+												<label>Info:</label>
+						 
+												<input type="text" class="form-control" name="info" value="{{ row.info }}">
+						 
+						 
+											</div>
+						 
+						 
+											<div class="form-group">
+						 
+						 
+												<button class="btn btn-primary" type="submit">Update</button>
+						 
+						 
+											</div>
+						 
+						 
+										</form>
+						 
+						 
+									</div>
+						 
+						 
+									<div class="modal-footer">
+						 
+						 
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						 
+						 
+									</div>
+						 
+						 
+								</div>
+						 
+						 
+							</div>
+						 
+						</div>
+						{% endfor %}
+                </table>
+            </div>
+<div id="mymodal" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+ 
+            <h4 class="modal-title">Add Employee</h4>
+         </div>
+         <div class="modal-body">
+ 
+            <form action="{{ url_for ('insert')}}" method="POST">
+ 
+ 
+               <div class="form-group">
+ 
+                  <label>Name:</label>
+                  <input type="text" class="form-control" name="name" required="1">
+ 
+ 
+               </div>
+ 
+ 
+                <div class="form-group">
+ 
+ 
+                  <label>Email:</label>
+                  <input type="email" class="form-control" name="email" required="1">
+ 
+ 
+               </div>
+					<div class="form-group">
+ 
+ 
+                  <label>Info:</label>
+                  <input type="info" class="form-control" name="info" required="1">
+ 
+ 
+               </div>
+					<div class="form-group">
+ 
+ 
+                  <button class="btn btn-primary" type="submit">Add Information</button>
+ 
+ 
+               </div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal"> Close</button>
+					</div>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,9 @@
+#+TITLE: simple website
+#+DATE: 2021 Sep 30, Thursday
+
+
+#+HEADER: :results output :eval no-export
+#+BEGIN_SRC sh :exports both
+  python -m venv venv
+  pip install flask
+#+END_SRC

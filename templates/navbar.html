@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{{ url_for ('static',filename='css/style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="nav">
+        <div class="head-outer">
+            <div class="head-inner">
+                <div class="branding">
+                    <a href=""><img class="icon" src="{{ url_for ('static',filename='image/icon.png')}}" alt="icon"></a>
+                </div>
+                <div class="col-md-4 col-sm-2 fixed-width-350 d-none d-sm-block" style="margin: auto">
+                    <h3 class="company-name-text">Head Member</h3>
+                    <p class="company-description-text">Informative</p>
+                </div>
+                <div class="social">
+                    <a href=""><i class="s-icon fab fa-facebook-f"></i></a>
+                    <a href=""><i class="s-icon fab fa-linkedin"></i></a>
+                    <a href=""><i class="s-icon fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <ul>
+                <a href=""><li class="nav-item">Home</li></a>
+                <a href=""><li class="nav-item">About Us</li></a>
+                <a href=""><li class="nav-item">Services</li></a>
+                <a href=""><li class="nav-item">Downloads</li></a>
+                <a href=""><li class="nav-item">FAQ</li></a>
+                <a href=""><li class="nav-item">Blog</li></a>
+                <a href=""><li class="nav-item">Carrers</li></a>
+                <a href=""><li class="nav-item">Contact Us</li></a>
+            </ul>
+            <ul>
+                <a href=""><li class="nav-item"> Login </li></a>
+                <a href=""><li class="nav-item"> Register Now</li></a>           
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
